@@ -23,6 +23,6 @@ workflows:
           context: terraform
           filters:
             branches:
-              only: master
+              only: main
           requires:
             - terraform/plan
