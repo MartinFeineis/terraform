@@ -15,7 +15,7 @@ terraform {
   backend "s3" {
     bucket         = "villapenguinremotestatebucket"
     key            = "circleci/remotestate"
-    region = "us-east-1"
+    region         = "us-east-1"
     dynamodb_table = "villapenguintfrmstate"
     encrypt        = true
   }
