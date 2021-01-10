@@ -9,6 +9,11 @@ module "wasserraptor" {
 }
 
 
+output "main_secret" {
+  value       = module.wasserraptor.secret
+  description = "Secret Key for IAM User in main"
+  sensitive   = true
+}
 #resource "aws_instance" "web" {
 #  ami           = "ami-0be2609ba883822ec"
 #  instance_type = "t3.micro"
