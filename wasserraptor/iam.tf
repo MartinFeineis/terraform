@@ -7,6 +7,10 @@ resource "aws_iam_user" "iam_wrp" {
   }
 }
 
+resource "aws_iam_access_key" "iam_ackey_wrp" {
+  user = aws_iam_user.iam_wrp.name
+}
+
 resource "aws_iam_policy" "iam_policy_wrp" {
   name        = "WasserraptorPolicy"
   description = "Policy for Wasserraptor account to s3 bucket"
@@ -45,7 +49,6 @@ EOF
 }
 
 resource "aws_iam_user_policy_attachment" "iam_plcy_att_wrp" {
-  #name       = "PolicyAttachmentWasserraptor"
   user      = aws_iam_user.iam_wrp.name
   policy_arn = aws_iam_policy.iam_policy_wrp.arn
 }
