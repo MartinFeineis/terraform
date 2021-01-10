@@ -49,6 +49,6 @@ EOF
 }
 
 resource "aws_iam_user_policy_attachment" "iam_plcy_att_wrp" {
-  user      = aws_iam_user.iam_wrp.name
+  user       = aws_iam_user.iam_wrp.name
   policy_arn = aws_iam_policy.iam_policy_wrp.arn
 }
