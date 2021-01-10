@@ -14,6 +14,11 @@ output "main_secret" {
   description = "Secret Key for IAM User in main"
   sensitive   = true
 }
+
+output "testouput" {
+  value = "Test String"
+}
+
 #resource "aws_instance" "web" {
 #  ami           = "ami-0be2609ba883822ec"
 #  instance_type = "t3.micro"
