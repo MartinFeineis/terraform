@@ -52,3 +52,9 @@ resource "aws_iam_user_policy_attachment" "iam_plcy_att_wrp" {
   user       = aws_iam_user.iam_wrp.name
   policy_arn = aws_iam_policy.iam_policy_wrp.arn
 }
+
+output "iam_secret" {
+  value       = aws_iam_access_key.iam_ackey_wrp.encrypted_secret
+  description = "Secret Key for IAM User"
+  sensitive   = true
+}
