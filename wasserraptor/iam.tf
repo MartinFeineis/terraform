@@ -43,3 +43,9 @@ resource "aws_iam_policy" "iam_policy_wrp" {
 }
 EOF
 }
+
+resource "aws_iam_policy_attachment" "iam_plcy_att_wrp" {
+  name       = "PolicyAttachmentWasserraptor"
+  users      = [aws_iam_user.iam_wrp.name]
+  policy_arn = aws_iam_policy.iam_policy_wrp.arn
+}
