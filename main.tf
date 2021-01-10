@@ -8,9 +8,8 @@ module "wasserraptor" {
   source = "./wasserraptor"
 }
 
-
 output "main_secret" {
-  value       = module.wasserraptor.secret
+  value       = module.wasserraptor.secret # aws_iam_access_key.iam_ackey_wrp.encrypted_secret
   description = "Secret Key for IAM User in main"
   sensitive   = true
 }
