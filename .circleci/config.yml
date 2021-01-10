@@ -10,6 +10,7 @@ workflows:
       - terraform/validate:
           checkout: true
           context: terraform
+          backend_config: "access_key=TF_VAR_accesskey,secret_key=TF_VAR_secretkey"
           requires:
             - terraform/fmt
       - terraform/plan:
