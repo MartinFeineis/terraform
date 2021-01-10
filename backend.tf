@@ -25,12 +25,12 @@ resource "aws_dynamodb_table" "dynamodb-terraform-state-lock" {
   }
 }
 
-terraform {
-  backend "s3" {
-    bucket         = "villapenguinremotestatebucket"
-    key            = "circleci/remotestate"
-    region         = "us-east-1"
-    dynamodb_table = "dynamodb-terraform-state-lock"
-    encrypt        = true
-  }
-}
+#terraform {
+#  backend "s3" {
+#    bucket         = "villapenguinremotestatebucket"
+#    key            = "circleci/remotestate"
+#    region         = "us-east-1"
+#    dynamodb_table = "dynamodb-terraform-state-lock"
+#    encrypt        = true
+#  }
+#}
