@@ -30,7 +30,7 @@ terraform {
     bucket         = "villapenguinremotestatebucket"
     key            = "circleci/remotestate"
     region         = "us-east-1"
-    dynamodb_table = "dynamodb-terraform-state-lock" 
+    dynamodb_table = "dynamodb-terraform-state-lock"
     encrypt        = true
   }
 }
