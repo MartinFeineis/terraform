@@ -1,6 +1,6 @@
 resource "aws_s3_bucket" "wasserraptor_bucket" {
   bucket = "wasserraptorde"
-  acl    = "private"
+  acl    = "public-read"
 
   tags = {
     Name        = "Wasserraptor"
