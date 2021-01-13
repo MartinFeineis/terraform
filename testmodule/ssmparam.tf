@@ -3,7 +3,7 @@ resource "aws_ssm_parameter" "dev_param" {
   description = "The parameter description"
   value       = "TestThis"
 
-  tags = {
+  tags = merge ({
     environment = "production"
-  }
+  }, var.commontags)
 }
