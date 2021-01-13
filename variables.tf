@@ -5,8 +5,7 @@ variable "secretkey" {}
 #    module = basename(abspath(path.module))
 #}
 
-
-variable "commontags" {
+variable "roottags" {
   description = "Commona Tags applicable to all objects"
   default = { terraformed = true,
     Name   = "NameVar",
