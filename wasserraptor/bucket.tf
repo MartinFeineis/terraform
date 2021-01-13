@@ -29,3 +29,8 @@ EOF
     terraformed = "true"
   }
 }
+
+resource "aws_s3_bucket" "wasserraptor_logs" {
+  bucket = "wasserraptor_logs"
+  acl = "private"
+}
