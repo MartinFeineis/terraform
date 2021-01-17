@@ -16,7 +16,7 @@ module "testy" {
 
 module "registries" {
   source     = "./registries"
-  registries = var.ecr_names
+  regnames   = var.ecr_names
   commontags = var.roottags
 }
 

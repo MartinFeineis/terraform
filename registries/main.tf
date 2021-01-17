@@ -1,5 +1,5 @@
 resource "aws_ecr_repository" "foo" {
-  for_each             = var.registries
+  for_each             = var.regnames
   image_tag_mutability = "MUTABLE"
   name                 = each.key
 
