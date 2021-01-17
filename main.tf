@@ -13,6 +13,13 @@ module "testy" {
   commontags = var.roottags
 }
 
+
+module "registries" {
+  source     = "./registries"
+  registries = var.ecr_names
+  commontags = var.roottags
+}
+
 output "main_secret" {
   value       = module.wasserraptor # aws_iam_access_key.iam_ackey_wrp.encrypted_secret
   description = "Secret Key for IAM User in main"

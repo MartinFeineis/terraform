@@ -4,7 +4,7 @@ variable "secretkey" {}
 #locals {
 #    module = basename(abspath(path.module))
 #}
-variable "ecrnames" {
+variable "ecr_names" {
   type    = list(string)
   default = ["nginx", "flask", "django", "msgapi"]
 }
