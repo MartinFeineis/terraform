@@ -1,3 +1,6 @@
+variable "regnames" {}
+variable "commontags" {}
+
 resource "aws_ecr_repository" "foo" {
   for_each             = var.regnames
   image_tag_mutability = "MUTABLE"
