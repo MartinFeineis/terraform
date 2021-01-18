@@ -19,3 +19,7 @@ resource "aws_ssm_parameter" "dev_param" {
 output "paramoutput" {
   value = aws_ssm_parameter.dev_param.arn
 }
+
+output "paramModule" {
+  value = locals.module
+}
