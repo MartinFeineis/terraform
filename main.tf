@@ -9,7 +9,7 @@ module "wasserraptor" {
 }
 
 module "testy" {
-  source     = "./testmodule"
+  source   = "./testmodule"
   roottags = var.roottags
 }
 
@@ -17,18 +17,18 @@ module "bill" {
   source                    = "./billing"
   monthly_billing_threshold = 13
   currency                  = "USD"
-  roottags                = var.roottags
+  roottags                  = var.roottags
 }
 
 module "eksaws" {
   source      = "./eksaws"
-  roottags  = var.roottags
+  roottags    = var.roottags
   eksdeployer = var.eksdeployer
 }
 
 module "registries" {
-  source     = "./registries"
-  regnames   = var.ecr_names
+  source   = "./registries"
+  regnames = var.ecr_names
   roottags = var.roottags
 }
 

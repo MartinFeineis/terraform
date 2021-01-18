@@ -16,14 +16,14 @@ variable "ecr_names" {
   default = ["nginx", "flask", "django", "msgapi"]
 }
 
-variable "modulename"{
+variable "modulename" {
   default = "root"
 }
 
 variable "roottags" {
   description = "Commona Tags applicable to all objects"
   default = { terraformed = true,
-    Name   = "NameVar"
+    Name = "NameVar"
     #Module = var.modulename
   }
 }
