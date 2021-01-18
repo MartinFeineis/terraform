@@ -32,5 +32,5 @@ EOF
 
 resource "aws_s3_bucket" "wasserraptor_logs" {
   bucket = "wasserraptorlogs"
-  acl = "private"
+  acl    = "private"
 }

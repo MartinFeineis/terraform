@@ -10,8 +10,8 @@ resource "aws_ssm_parameter" "dev_param" {
   type        = "String"
   tags = merge(
 
-  var.moduletags
-, var.roottags)
+    var.moduletags
+  , var.roottags)
 }
 
 output "paramoutput" {
