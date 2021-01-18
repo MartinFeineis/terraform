@@ -17,6 +17,7 @@ module "bill" {
   source                    = "./billing"
   monthly_billing_threshold = 13
   currency                  = "USD"
+  commontags  = var.roottags
 }
 
 module "eksaws" {
