@@ -15,5 +15,5 @@ resource "aws_cloudwatch_metric_alarm" "billing" {
   dimensions = {
     Currency = "${var.currency}"
   }
- tags = var.commontags
+  tags = var.commontags
 }
