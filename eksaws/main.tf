@@ -1,0 +1,2 @@
+variable "eksdeployer" {}
+variable "commontags" {}
