@@ -1,5 +1,5 @@
 locals {
-  module = basename(abspath(path.module))
+  module = basename(abspath("."))
 }
 
 variable "commontags" {}
