@@ -11,7 +11,7 @@ resource "aws_ssm_parameter" "dev_param" {
   type        = "String"
   tags = merge({
     environment = "production",
-    Module      = var.module
+    Module      = local.module
 
   }, var.commontags)
 }
