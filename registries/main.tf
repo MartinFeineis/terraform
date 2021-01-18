@@ -1,5 +1,5 @@
 variable "regnames" {}
-variable "commontags" {}
+variable "roottags" {}
 
 resource "aws_ecr_repository" "foo" {
   for_each             = toset(var.regnames)
@@ -11,6 +11,6 @@ resource "aws_ecr_repository" "foo" {
   }
   tags = merge({
     environment = "leonard"
-  }, var.commontags)
+  }, var.roottags)
 }
 

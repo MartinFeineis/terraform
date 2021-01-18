@@ -10,30 +10,30 @@ module "wasserraptor" {
 
 module "testy" {
   source     = "./testmodule"
-  commontags = var.roottags
+  roottags = var.roottags
 }
 
 module "bill" {
   source                    = "./billing"
   monthly_billing_threshold = 13
   currency                  = "USD"
-  commontags                = var.roottags
+  roottags                = var.roottags
 }
 
 module "eksaws" {
   source      = "./eksaws"
-  commontags  = var.roottags
+  roottags  = var.roottags
   eksdeployer = var.eksdeployer
 }
 
 module "registries" {
   source     = "./registries"
   regnames   = var.ecr_names
-  commontags = var.roottags
+  roottags = var.roottags
 }
 
 output "main_secret" {
-  value       = module.wasserraptor # aws_iam_access_key.iam_ackey_wrp.encrypted_secret
+  value       = module.wasserraptor
   description = "Secret Key for IAM User in main"
   sensitive   = true
 }

@@ -2,18 +2,16 @@ locals {
   module = basename(abspath("."))
 }
 
-variable "commontags" {}
 
 resource "aws_ssm_parameter" "dev_param" {
   name        = "/Development/Parameter"
   description = "The parameter description"
   value       = "TestThis"
   type        = "String"
-  tags = merge({
-    environment = "production",
-    Module      = local.module
+  tags = merge(
 
-  }, var.commontags)
+  var.moduletags
+, var.roottags)
 }
 
 output "paramoutput" {

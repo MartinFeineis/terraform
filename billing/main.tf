@@ -1,7 +1,3 @@
-variable "currency" {}
-variable "monthly_billing_threshold" {}
-variable "commontags" {}
-
 resource "aws_cloudwatch_metric_alarm" "billing" {
   alarm_name          = "billing-alarm-${lower(var.currency)}"
   comparison_operator = "GreaterThanOrEqualToThreshold"
@@ -13,7 +9,7 @@ resource "aws_cloudwatch_metric_alarm" "billing" {
   threshold           = var.monthly_billing_threshold
 
   dimensions = {
-    Currency = "${var.currency}"
+    Currency = var.currency
   }
-  tags = var.commontags
+  tags = merge(var.roottags, var.moduletags)
 }
