@@ -1,3 +1,7 @@
+locals {
+  module = basename(abspath(path.module))
+}
+
 variable "commontags" {}
 
 resource "aws_ssm_parameter" "dev_param" {
@@ -6,7 +10,9 @@ resource "aws_ssm_parameter" "dev_param" {
   value       = "TestThis"
   type        = "String"
   tags = merge({
-    environment = "production"
+    environment = "production",
+    Module      = var.module
+
   }, var.commontags)
 }
 
