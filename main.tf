@@ -13,11 +13,11 @@ module "testy" {
   commontags = var.roottags
 }
 
-#module "eksaws" {
-#  source      = "./eksaws"
-#  commontags  = var.roottags
-#  eksdeployer = var.eksdeployer
-#}
+module "eksaws" {
+  source      = "./eksaws"
+  commontags  = var.roottags
+  eksdeployer = var.eksdeployer
+}
 
 module "registries" {
   source     = "./registries"
