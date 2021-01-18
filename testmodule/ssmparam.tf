@@ -21,5 +21,5 @@ output "paramoutput" {
 }
 
 output "paramModule" {
-  value = locals.module
+  value = local.module
 }
