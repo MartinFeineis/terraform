@@ -1,8 +1,6 @@
 version: '2.1'
 orbs:
   terraform: 'circleci/terraform@1.1.1'
-workflows:
-  deploy_infrastructure:
     jobs:
       - terraform/fmt:
           checkout: true
@@ -27,3 +25,7 @@ workflows:
               only: main
           requires:
             - terraform/plan
+workflows:
+  deploy_infrastructure:
+    jobs:
+      terraform/fmt
