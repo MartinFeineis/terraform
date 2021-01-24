@@ -25,7 +25,9 @@ orbs:
               only: main
           requires:
             - terraform/plan
+
 workflows:
   deploy_infrastructure:
     jobs:
-      terraform/fmt
+      - terraform/fmt
+      - terraform/validate
