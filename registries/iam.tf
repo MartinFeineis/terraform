@@ -7,7 +7,7 @@ tags = merge(
 }
 
 resource "aws_iam_access_key" "iam_ackey_wrp" {
-  user = aws_iam_user.iam_wrp.name
+  user = aws_iam_user.iam_ecr_pusher.name
 }
 
 resource "aws_iam_policy" "iam_polics_ecrpusher" {
