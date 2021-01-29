@@ -8,6 +8,7 @@ jobs:
     context: terraform
     steps:
       - checkout
+      - backend_config: "access_key=$(TF_VAR_accesskey),secret_key=$(TF_VAR_secretkey)"
       - run:
           name: terraform init & plan
           command: |
