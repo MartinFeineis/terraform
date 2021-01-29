@@ -5,14 +5,13 @@ jobs:
     working_directory: /tmp/project
     docker:
       - image: hashicorp/terraform:light
-    backend_config: "access_key=$(TF_VAR_accesskey),secret_key=$(TF_VAR_secretkey)"
     steps:
       - checkout
       - run:
           name: terraform init & plan
           command: |
             terraform init -input=false
-            terraform plan -out tfapply -var-file variables.tfvars
+            terraform plan -out tfapply
       - persist_to_workspace:
           root: .
           paths:
