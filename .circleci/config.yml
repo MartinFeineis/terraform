@@ -7,6 +7,7 @@ jobs:
       - image: hashicorp/terraform:light
     steps:
       - checkout
+      - context: terraform
       - run:
           name: terraform init & plan
           command: |
