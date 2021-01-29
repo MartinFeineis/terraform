@@ -5,9 +5,9 @@ jobs:
     working_directory: /tmp/project
     docker:
       - image: hashicorp/terraform:light
+    context: terraform
     steps:
       - checkout
-      - context: terraform
       - run:
           name: terraform init & plan
           command: |
