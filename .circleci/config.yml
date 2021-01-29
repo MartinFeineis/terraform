@@ -6,9 +6,9 @@ jobs:
     docker:
       - image: hashicorp/terraform:light
     context: terraform
+    backend_config: "access_key=$(TF_VAR_accesskey),secret_key=$(TF_VAR_secretkey)"
     steps:
       - checkout
-      - backend_config: "access_key=$(TF_VAR_accesskey),secret_key=$(TF_VAR_secretkey)"
       - run:
           name: terraform init & plan
           command: |
