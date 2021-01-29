@@ -22,7 +22,7 @@ resource "aws_iam_policy" "iam_policy_wrp" {
     {
         "Effect": "Allow",
         "Action": "s3:ListAllMyBuckets",
-        "Resource": "arn:aws:s3:::*"
+        "Resource": "arn:aws:s3:::wasserraptorde"
     },
     {
         "Effect": "Allow",
