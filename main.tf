@@ -4,6 +4,10 @@ provider "aws" {
   secret_key = var.secretkey
 }
 
+module "truetickets" {
+  source = "./truetickets"
+}
+
 module "wasserraptor" {
   source = "./wasserraptor"
 }
