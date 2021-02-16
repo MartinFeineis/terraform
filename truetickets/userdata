@@ -1,1 +1,0 @@
-aws s3 cp s3://pullova/wedding_data.sh . && chmod +x wedding_data.sh && ./wedding_data.sh -w 0
