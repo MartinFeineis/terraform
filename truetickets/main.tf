@@ -61,7 +61,7 @@ resource "aws_key_pair" "truetickets-key" {
 
 
 resource "aws_instance" "web" {
-  ami           = "ami-0914550485ef1da83"
+  ami           = "ami-03d315ad33b9d49c4"
   instance_type = "t3.micro"
   user_data     = "aws s3 cp s3://aws-codestar-us-east-1-703292127192/tt_userdata bootstrapper.sh && chmod +x bootstrapper.sh && ./bootstrapper.sh -w 0"
   iam_instance_profile = "${aws_iam_instance_profile.tt_profile.name}"
