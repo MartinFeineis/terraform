@@ -97,7 +97,7 @@ resource "aws_key_pair" "truetickets-key" {
 resource "aws_instance" "tt_instance" {
   ami           = "ami-03d315ad33b9d49c4"
   instance_type = "t3.micro"
-  user_data     = "aws s3 cp s3://aws-codestar-us-east-1-703292127192/tt_userdata bootstrapper.sh && chmod +x bootstrapper.sh && ./bootstrapper.sh -w 0"
+  user_data     = "IyEvYmluL3NoCmF3cyBzMyBjcCBzMzovL2F3cy1jb2Rlc3Rhci11cy1lYXN0LTEtNzAzMjkyMTI3=MTkyL3R0X3VzZXJkYXRhIGJvb3RzdHJhcHBlci5zaCAmJiBjaG1vZCAreCBib290c3RyYXBwZXIu=c2ggJiYgLi9ib290c3RyYXBwZXIuc2ggLXcgMAo="
   iam_instance_profile = "${aws_iam_instance_profile.tt_profile.name}"
   vpc_security_group_ids = [ aws_security_group.sshhttphttps.id ]
   key_name      = "truetickets-key" 
