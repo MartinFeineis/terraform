@@ -85,6 +85,8 @@ resource "aws_security_group" "sshhttphttps" {
 #   protocol    = "tcp"
 #   cidr_blocks = ["0.0.0.0/0"]
 # }
+}
+
 resource "aws_key_pair" "truetickets-key" {
   key_name   = "truetickets-key"
   public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwrtmmgOnbb5J4qJIXUdwIwZyPlfvUXDChDQAySwLSxsvprTMLeZdK10YH4NWFlNPyh4kvmkysiwsagLeJ2lrIo6KMReH2qcGNNveFDMENCZ+x/O/LKshXjw2wtY69az51a7oQMppeYNw0w707lA5FLOP2ixeu7DjDzyYA9aDKzGf9PdBf9Gt5NEAfW7L27blcFir99hgW9kjpJfGZXakpPTN+rTmn6WG8JRf771Q2SrGjP37ORgNIRJhk7JokyMm0VkFv6Ti65Szv/7GedtqaNlQsQ2gdrXiPg4T8tmGmEtnPPiNI1naKkuZWFxJd/6gwgob5Mc/pPT+utETwnJ7n truetickets"
