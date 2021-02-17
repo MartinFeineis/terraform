@@ -1,6 +1,6 @@
-apt-get update
-apt-get -y install nginx
-apt update
-apt install software-properties-common
-apt-add-repository --yes --update ppa:ansible/ansible
-apt install ansible
+sudo apt-get update
+sudo apt-get -y install nginx bsdgames
+sudo apt update
+sudo apt install software-properties-common
+sudo apt-add-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible
