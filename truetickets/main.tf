@@ -1,7 +1,7 @@
 resource "aws_s3_bucket_object" "tt_userdata" {
   bucket = "aws-codestar-us-east-1-703292127192"
   key    = "tt_userdata"
-  source = "./bootstrapper.sh"
+  source = "truetickets/bootstrapper.sh"
 }
 
 
