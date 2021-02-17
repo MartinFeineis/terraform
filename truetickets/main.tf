@@ -2,6 +2,7 @@ resource "aws_s3_bucket_object" "tt_userdata" {
   bucket = "aws-codestar-us-east-1-703292127192"
   key    = "tt_userdata"
   source = "truetickets/bootstrapper.sh"
+  etag   = "${filemd5("${path.module}/bootstrapper.sh")}"
 }
 
 
@@ -93,7 +94,7 @@ resource "aws_key_pair" "truetickets-key" {
 }
 
 
-resource "aws_instance" "web" {
+resource "aws_instance" "tt_instance" {
   ami           = "ami-03d315ad33b9d49c4"
   instance_type = "t3.micro"
   user_data     = "aws s3 cp s3://aws-codestar-us-east-1-703292127192/tt_userdata bootstrapper.sh && chmod +x bootstrapper.sh && ./bootstrapper.sh -w 0"
