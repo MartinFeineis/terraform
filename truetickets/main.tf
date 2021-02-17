@@ -1,7 +1,7 @@
 resource "aws_s3_bucket_object" "tt_userdata" {
   bucket = "aws-codestar-us-east-1-703292127192"
   key    = "tt_userdata"
-  source = "bootstrapper.sh"
+  source = "./bootstrapper.sh"
 }
 
 
@@ -61,7 +61,7 @@ resource "aws_key_pair" "truetickets-key" {
 
 
 resource "aws_instance" "web" {
-  ami           = "ami-0a1e476a62823e750"
+  ami           = "ami-0914550485ef1da83"
   instance_type = "t3.micro"
   user_data     = "aws s3 cp s3://aws-codestar-us-east-1-703292127192/tt_userdata bootstrapper.sh && chmod +x bootstrapper.sh && ./bootstrapper.sh -w 0"
   iam_instance_profile = "${aws_iam_instance_profile.tt_profile.name}"
