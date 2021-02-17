@@ -54,11 +54,11 @@ resource "aws_iam_role_policy" "test_policy" {
 EOF
 }
 
-#resource "aws_default_vpc" "default" {
-#  tags = {
-#    Name = "Default VPC"
-#  }
-#}
+resource "aws_default_vpc" "default" {
+  tags = {
+    Name = "Default VPC"
+  }
+}
 
 resource "aws_security_group" "sshhttphttps" {
   name        = "allow_ssh_sg"
@@ -79,12 +79,12 @@ resource "aws_security_group" "sshhttphttps" {
     cidr_blocks = [aws_vpc.gs-vpc.cidr_block]
   }
 
-# ingress {
-#   from_port   = 22
-#   to_port     = 22
-#   protocol    = "tcp"
-#   cidr_blocks = ["0.0.0.0/0"]
-# }
+ ingress {
+   from_port   = 22
+   to_port     = 22
+   protocol    = "tcp"
+   cidr_blocks = ["0.0.0.0/0"]
+ }
 }
 
 resource "aws_key_pair" "truetickets-key" {
