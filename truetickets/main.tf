@@ -1,10 +1,8 @@
-resource "aws_s3_bucket_object" "tt_userdata" {
-  bucket = "aws-codestar-us-east-1-703292127192"
-  key    = "tt_userdata"
-  source = "truetickets/bootstrapper.sh"
-  etag   = "${filemd5("${path.module}/bootstrapper.sh")}"
+provider "aws" {
+  region     = "us-east-1"
+  access_key = var.accesskey
+  secret_key = var.secretkey
 }
-
 
 resource "aws_iam_role" "s3_bootstrapper" {
   name = "test_role"
