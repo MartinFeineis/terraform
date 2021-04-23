@@ -8,6 +8,10 @@ module "wasserraptor" {
   source = "./wasserraptor"
 }
 
+module "orgs" {
+  source = "./accounts"
+}
+
 module "testy" {
   source   = "./testmodule"
   roottags = var.roottags
@@ -36,6 +40,10 @@ output "main_secret" {
   value       = module.wasserraptor
   description = "Secret Key for IAM User in main"
   sensitive   = true
+}
+
+output "orgout" {
+  value = module.orgs
 }
 
 output "paramout" {
