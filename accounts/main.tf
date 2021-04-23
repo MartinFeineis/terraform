@@ -5,3 +5,11 @@ resource "aws_vpc" "example" {
     Module = "Organizations"
   }
 }
+
+output "accOut" {
+	value = "Hello Accounts"
+}
+
+output "orgModule" {
+	value = local.module
+}
