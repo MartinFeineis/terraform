@@ -9,7 +9,3 @@ resource "aws_vpc" "example" {
 output "accOut" {
 	value = "Hello Accounts"
 }
-
-output "orgModule" {
-	value = local.module
-}
