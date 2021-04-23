@@ -72,16 +72,3 @@ workflows:
           context: terraform
           requires:
             - hold-apply
-      - plan-destroy:
-          context: terraform
-          requires:
-            - apply
-      - hold-destroy:
-          type: approval
-          requires:
-            - plan-destroy
-      - destroy:
-          context: terraform
-          requires:
-            - hold-destroy
-
