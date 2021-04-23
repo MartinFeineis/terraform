@@ -8,13 +8,27 @@ provider "aws" {
 #  source = "./wasserraptor"
 #}
 
+#output "main_secret" {
+#  value       = module.wasserraptor
+#  description = "Secret Key for IAM User in main"
+#  sensitive   = true
+#}
+
 module "orgs" {
   source = "./accounts"
+}
+
+output "orgout" {
+  value = module.orgs
 }
 
 module "testy" {
   source   = "./testmodule"
   roottags = var.roottags
+}
+
+output "paramout" {
+  value = module.testy
 }
 
 module "bill" {
@@ -34,20 +48,6 @@ module "registries" {
   source   = "./registries"
   regnames = var.ecr_names
   roottags = var.roottags
-}
-
-output "main_secret" {
-  value       = module.wasserraptor
-  description = "Secret Key for IAM User in main"
-  sensitive   = true
-}
-
-output "orgout" {
-  value = module.orgs
-}
-
-output "paramout" {
-  value = module.testy
 }
 
 #resource "aws_instance" "web" {
