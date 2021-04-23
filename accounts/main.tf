@@ -1,6 +1,6 @@
-resource "aws_organizations_account" "yahoode" {
-  name  = "yahoo-test-account"
-  email = "martin.feineis@yahoo.de"
+resource "aws_organizations_account" "aolcom" {
+  name  = "aol-test-account"
+  email = "martifein@aol.com"
 }
 
 output "accOut" {
