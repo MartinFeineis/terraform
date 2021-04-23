@@ -1,9 +1,6 @@
-resource "aws_vpc" "example" {
-  cidr_block = "10.0.0.0/16"
-  tags = {
-    Name   = "orgVPC"
-    Module = "Organizations"
-  }
+resource "aws_organizations_account" "yahoode" {
+  name  = "yahoo-test-account"
+  email = "martin.feineis@yahoo.de"
 }
 
 output "accOut" {
