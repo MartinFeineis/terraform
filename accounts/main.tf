@@ -3,10 +3,12 @@ resource "aws_organizations_organization" "martinorg" {
     "cloudtrail.amazonaws.com",
     "config.amazonaws.com",
   ]
-
+  enabled_policy_types = [
+    "SERVICE_CONTROL_POLICY",
+  ]
   feature_set = "ALL"
 }
 
 output "accOut" {
-	value = "Hello Accounts"
+  value = "Hello Accounts"
 }
