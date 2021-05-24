@@ -7,11 +7,6 @@ resource "aws_organizations_organization" "martinorg" {
   feature_set = "ALL"
 }
 
-resource "aws_organizations_account" "aolcom" {
-  name  = "aol-test-account"
-  email = "martifein@aol.com"
-}
-
 output "accOut" {
 	value = "Hello Accounts"
 }
