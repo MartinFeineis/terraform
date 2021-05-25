@@ -20,6 +20,12 @@ module "bill" {
   roottags                  = var.roottags
 }
 
+module "scps" {
+  source      = "./scps"
+  roottags    = var.roottags
+  eksdeployer = var.eksdeployer
+}
+
 module "eksaws" {
   source      = "./eksaws"
   roottags    = var.roottags
