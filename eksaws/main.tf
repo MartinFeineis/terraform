@@ -1,1 +1,1 @@
-variable "eksdeployer" {}
+#variable "eksdeployer" {}
