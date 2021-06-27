@@ -33,7 +33,6 @@ data "aws_iam_policy_document" "mailbox" {
     actions = [
       "s3:PutObject"
     ]
-    resources = ["${aws_s3_bucket.index_document}/*"]
   }
 }
 
