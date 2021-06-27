@@ -40,7 +40,7 @@ resource "aws_ses_receipt_rule" "store" {
   scan_enabled  = true
 
   s3_action {
-    bucket_name = aws_s3_bucket.nxtgenbucket.name
+    bucket_name = aws_s3_bucket.nxtgenbucket.id
     object_key_prefix = "incomingMails"
     position    = 2
   }
