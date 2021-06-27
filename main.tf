@@ -24,11 +24,11 @@ module "scps" {
   source      = "./scps"
 }
 
-module "eksaws" {
-  source      = "./eksaws"
-  roottags    = var.roottags
-  eksdeployer = var.eksdeployer
-}
+#module "eksaws" {
+#  source      = "./eksaws"
+#  roottags    = var.roottags
+#  eksdeployer = var.eksdeployer
+#}
 
 module "registries" {
   source   = "./registries"
