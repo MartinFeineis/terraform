@@ -44,4 +44,5 @@ resource "aws_ses_receipt_rule" "store" {
     object_key_prefix = "incomingMails"
     position    = 2
   }
+   depends_on = [ aws_s3_bucket.nxtgenbucket ]
 }
