@@ -36,11 +36,11 @@ module "registries" {
   roottags = var.roottags
 }
 
-output "main_secret" {
-  value       = module.wasserraptor
-  description = "Secret Key for IAM User in main"
-  sensitive   = true
-}
+#output "main_secret" {
+#  value       = module.wasserraptor
+#  description = "Secret Key for IAM User in main"
+#  sensitive   = true
+#}
 
 output "paramout" {
   value = module.testy
