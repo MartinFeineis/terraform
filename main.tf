@@ -22,8 +22,6 @@ module "bill" {
 
 module "scps" {
   source      = "./scps"
-  roottags    = var.roottags
-  eksdeployer = var.eksdeployer
 }
 
 module "eksaws" {
