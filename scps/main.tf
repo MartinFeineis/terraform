@@ -34,8 +34,8 @@ data "aws_iam_policy_document" "mailbox" {
       "s3:PutObject"
     ]
     resources = [
-      "arn:aws:s3:::snxtgenbucket", 
-      "arn:aws:s3:::snxtgenbucket/*", 
+      "arn:aws:s3:::nxtgenenginemails", 
+      "arn:aws:s3:::nxtgenenginemails/*", 
     ]
   }
 }
