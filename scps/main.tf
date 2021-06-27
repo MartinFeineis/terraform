@@ -15,7 +15,7 @@
 #}
 
 resource "aws_route53_record" "nxtgenmxrec" {
-  zone_id = "Z98GQ2HLBZ01D"
+  zone_id = "Z2LBEWPVZUG9W2"
   name    = "mail.nxtgenengines.com"
   type    = "MX"
   ttl     = "300"
