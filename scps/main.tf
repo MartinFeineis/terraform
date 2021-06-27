@@ -33,7 +33,7 @@ data "aws_iam_policy_document" "mailbox" {
     actions = [
       "s3:PutObject"
     ]
-    resources = ["${data.aws_s3_bucket.nxtgenbucket.id}/*"]
+    resources = ["${aws_s3_bucket.nxtgenbucket.id}/*"]
   }
 }
 
