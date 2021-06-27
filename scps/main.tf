@@ -39,7 +39,7 @@ data "aws_iam_policy_document" "mailbox" {
 
 resource "aws_s3_bucket_policy" "mailbox" {
   bucket = aws_s3_bucket.nxtgenbucket.id
-  policy = aws_iam_policy.mailbox.id"
+  policy = aws_iam_policy.mailbox.id
 }
 
 resource "aws_route53_record" "nxtgenmxrec" {
