@@ -23,6 +23,24 @@ resource "aws_s3_bucket" "nxtgenbucket" {
   }
 }
 
+data "aws_iam_policy_document" "mailbox" {
+  statement {
+    effect = "Allow"
+    principals {
+      type = "Service"
+      identifiers = ["ses.amazonaws.com"]
+    }
+    actions = [
+      "s3:PutObject"
+    ]
+    resources = ["${aws_s3_bucket.index_document}/*"]
+  }
+}
+
+resource "aws_s3_bucket_policy" "mailbox" {
+  bucket = aws_s3_bucket.nxtgenbucket.id
+  policy = aws_iam_policy.mailbox.id"
+}
 
 resource "aws_route53_record" "nxtgenmxrec" {
   zone_id = "Z2LBEWPVZUG9W2"
@@ -42,7 +60,7 @@ resource "aws_ses_receipt_rule" "store" {
   s3_action {
     bucket_name = aws_s3_bucket.nxtgenbucket.id
     object_key_prefix = "incomingMails"
-    position    = 2
+    position    = 1
   }
    depends_on = [ aws_s3_bucket.nxtgenbucket ]
 }
