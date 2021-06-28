@@ -4,9 +4,9 @@ provider "aws" {
   secret_key = var.secretkey
 }
 
-module "wasserraptor" {
-  source = "./wasserraptor"
-}
+#module "wasserraptor" {
+#  source = "./wasserraptor"
+#}
 
 module "testy" {
   source   = "./testmodule"
@@ -20,11 +20,15 @@ module "bill" {
   roottags                  = var.roottags
 }
 
-module "eksaws" {
-  source      = "./eksaws"
-  roottags    = var.roottags
-  eksdeployer = var.eksdeployer
+module "scps" {
+  source      = "./scps"
 }
+
+#module "eksaws" {
+#  source      = "./eksaws"
+#  roottags    = var.roottags
+#  eksdeployer = var.eksdeployer
+#}
 
 module "registries" {
   source   = "./registries"
@@ -32,11 +36,11 @@ module "registries" {
   roottags = var.roottags
 }
 
-output "main_secret" {
-  value       = module.wasserraptor
-  description = "Secret Key for IAM User in main"
-  sensitive   = true
-}
+#output "main_secret" {
+#  value       = module.wasserraptor
+#  description = "Secret Key for IAM User in main"
+#  sensitive   = true
+#}
 
 output "paramout" {
   value = module.testy
