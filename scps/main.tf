@@ -47,7 +47,7 @@ resource "aws_s3_bucket_policy" "mailbox" {
 
 resource "aws_route53_record" "nxtgenmxrec" {
   zone_id = "Z2LBEWPVZUG9W2"
-  name    = "mail.nxtgenengines.com"
+  name    = "nxtgenengines.com"
   type    = "MX"
   ttl     = "300"
   records = ["10 inbound-smtp.us-east-1.amazonaws.com"]
