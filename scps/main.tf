@@ -67,3 +67,19 @@ resource "aws_ses_receipt_rule" "store" {
   }
    depends_on = [ aws_s3_bucket.nxtgenbucket ]
 }
+
+resource "aws_organizations_account" "thirdaccount" {
+  name  = "nxtgenaccount"
+  email = "helloJune@nxtgenengines.com"
+}
+resource "aws_organizations_policy" "useastonly" {
+  name = "OnlyUsEastRegion"
+  description = "Disable all regions but us-east-1"
+
+  content = file(join("", [ "${path.module}", "/policy.json" ]))
+}
+
+resource "aws_organizations_policy_attachment" "account" {
+  policy_id = aws_organizations_policy.useastonly.id
+  target_id = aws_organizations_account.thirdaccount.id
+}
