@@ -13,6 +13,10 @@ module "testy" {
   roottags = var.roottags
 }
 
+module "users" {
+  source   = "./iam"
+}
+
 module "bill" {
   source                    = "./billing"
   monthly_billing_threshold = 13
