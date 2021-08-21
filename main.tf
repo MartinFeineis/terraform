@@ -4,9 +4,9 @@ provider "aws" {
   secret_key = var.secretkey
 }
 
-#module "wasserraptor" {
-#  source = "./wasserraptor"
-#}
+module "wasserraptor" {
+  source = "./wasserraptor"
+}
 
 module "testy" {
   source   = "./testmodule"
