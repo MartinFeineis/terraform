@@ -28,6 +28,10 @@ module "scps" {
   source      = "./scps"
 }
 
+module "messenger" {
+  source      = "./messenger"
+}
+
 #module "eksaws" {
 #  source      = "./eksaws"
 #  roottags    = var.roottags
