@@ -10,7 +10,6 @@ jobs:
       - run:
           name: terraform init & plan
           command: |
-            echo $(aws sts get-caller-identity)
             terraform init -input=false
             terraform plan -out tfapply
       - persist_to_workspace:
