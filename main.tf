@@ -28,9 +28,9 @@ module "scps" {
   source      = "./scps"
 }
 
-module "messenger" {
-  source      = "./messenger"
-}
+#module "messenger" {
+#  source      = "./messenger"
+#}
 
 #module "eksaws" {
 #  source      = "./eksaws"
@@ -38,11 +38,11 @@ module "messenger" {
 #  eksdeployer = var.eksdeployer
 #}
 
-module "registries" {
-  source   = "./registries"
-  regnames = var.ecr_names
-  roottags = var.roottags
-}
+#module "registries" {
+#  source   = "./registries"
+#  regnames = var.ecr_names
+#  roottags = var.roottags
+#}
 
 #output "main_secret" {
 #  value       = module.wasserraptor
@@ -53,13 +53,3 @@ module "registries" {
 output "paramout" {
   value = module.testy
 }
-
-#resource "aws_instance" "web" {
-#  ami           = "ami-0be2609ba883822ec"
-#  instance_type = "t3.micro"
-#
-#  tags = {
-#    Name        = "HelloWorld"
-#    terraformed = true
-#  }
-#}
