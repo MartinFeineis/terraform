@@ -69,3 +69,4 @@ resource "aws_organizations_policy" "region_restriction" {
 resource "aws_organizations_policy_attachment" "region_restriction_attachment" {
   policy_id = aws_organizations_policy.region_restriction.id
   target_id = var.target_id
+}
