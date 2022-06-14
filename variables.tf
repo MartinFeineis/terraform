@@ -27,3 +27,5 @@ variable "roottags" {
     #Module = var.modulename
   }
 }
+
+variable "target_id" {}
