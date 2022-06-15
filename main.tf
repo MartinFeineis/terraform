@@ -4,18 +4,18 @@ provider "aws" {
   secret_key = var.secretkey
 }
 
-module "wasserraptor" {
-  source = "./wasserraptor"
-}
+#module "wasserraptor" {
+#  source = "./wasserraptor"
+#}
+#
+#module "testy" {
+#  source   = "./testmodule"
+#  roottags = var.roottags
+#}
 
-module "testy" {
-  source   = "./testmodule"
-  roottags = var.roottags
-}
-
-module "users" {
-  source   = "./iam"
-}
+#module "users" {
+#  source   = "./iam"
+#}
 
 module "bill" {
   source                    = "./billing"
@@ -53,6 +53,6 @@ module "scps" {
 #  sensitive   = true
 #}
 
-output "paramout" {
-  value = module.testy
-}
+#output "paramout" {
+#  value = module.testy
+#}
