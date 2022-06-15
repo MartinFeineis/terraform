@@ -22,3 +22,9 @@ resource "aws_organizations_organizational_unit" "dev_org" {
   name      = "development"
   parent_id = "r-7ze0"
 }
+
+resource "aws_organizations_account" "development" {
+  name  = "development-account"
+  email = "martin.fe@web.de"
+  parent_id = aws_organizations_organizational_unit.dev_org.id
+}
