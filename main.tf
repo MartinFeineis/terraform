@@ -38,7 +38,7 @@ resource "aws_organizations_account" "development" {
   parent_id = aws_organizations_organizational_unit.dev_org.id
 }
 
-resource "aws_iam_group" "self_managing" {
-  name = "SelfManaging"
+resource "aws_iam_group" "developer" {
+  name = "Developer"
   provider = aws.develop
 }
