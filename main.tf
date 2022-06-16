@@ -51,7 +51,7 @@ resource "aws_iam_policy" "dev_policy" {
 }
 
 resource "aws_iam_group_policy_attachment" "attach_dev_policy" {
-  group      = aws_iam_group.develope.name
+  group      = aws_iam_group.developer.name
   policy_arn = aws_iam_policy.dev_policy.arn
 
   provider = aws.develop
