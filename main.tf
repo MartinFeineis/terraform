@@ -50,9 +50,23 @@ resource "aws_iam_policy" "dev_policy" {
   provider = aws.develop
 }
 
+resource "aws_iam_group_membership" "edvteam" {
+  name = "devteammgroup"
+  users = [
+    aws_iam_user.mydeveloper.name,
+  ]
+
+  group = aws_iam_group.developer.name
+  provider = aws.develop
+}
 resource "aws_iam_group_policy_attachment" "attach_dev_policy" {
   group      = aws_iam_group.developer.name
   policy_arn = aws_iam_policy.dev_policy.arn
 
+  provider = aws.develop
+}
+
+resource "aws_iam_user" "mydeveloper" {
+    name = "mfeineis"
   provider = aws.develop
 }
