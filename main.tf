@@ -42,3 +42,17 @@ resource "aws_iam_group" "developer" {
   name = "Developer"
   provider = aws.develop
 }
+
+resource "aws_iam_policy" "dev_policy" {
+  name   = "DevPolicy"
+  policy = file("${path.module}/localIPPolicy.json")
+
+  provider = aws.develop
+}
+
+resource "aws_iam_group_policy_attachment" "attach_dev_policy" {
+  group      = aws_iam_group.develope.name
+  policy_arn = aws_iam_policy.dev_policy.arn
+
+  provider = aws.develop
+}
