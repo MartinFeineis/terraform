@@ -4,6 +4,15 @@ provider "aws" {
   secret_key = var.secretkey
 }
 
+provider "aws" {
+  assume_role {
+    role_arn = "arn:aws:iam::${aws_organizations_account.development.id}:role/OrganizationAccountAccessRole"
+  }
+
+  alias  = "develop"
+  region = "us-east-1"
+}
+
 module "bill" {
   source                    = "./billing"
   monthly_billing_threshold = 13
@@ -27,4 +36,9 @@ resource "aws_organizations_account" "development" {
   name  = "development-account"
   email = "martin.fe@web.de"
   parent_id = aws_organizations_organizational_unit.dev_org.id
+}
+
+resource "aws_iam_group" "self_managing" {
+  name = "SelfManaging"
+  provider = aws.develop
 }

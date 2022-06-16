@@ -1,0 +1,16 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowOnlyMyIp",
+            "Effect": "Allow",
+            "Action": "*",
+            "Resource": "*",
+            "Condition": {
+                "IpAddress": {
+                    "aws:SourceIp": "108.2.141.202/32"
+                }
+            }
+        }
+    ]
+}
