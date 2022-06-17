@@ -1,4 +1,4 @@
-data "aws_iam_policy_document" "deny_all_ec2 {
+data "aws_iam_policy_document" "deny_all_ec2" {
   statement {
     sid = "denyAllEc2actions"
 
@@ -14,7 +14,7 @@ data "aws_iam_policy_document" "deny_all_ec2 {
   }
 }
 
-resource "aws_organizations_policy" "deny_all_ec2_policy {
+resource "aws_organizations_policy" "deny_all_ec2_policy" {
   name        = "Deny All EC2 actions"
   description = "Deny the ability to manipulate CloudTrail"
 
