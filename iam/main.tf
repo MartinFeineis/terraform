@@ -27,3 +27,16 @@ resource "aws_iam_user_policy" "contino_ro" {
 }
 EOF
 }
+
+resource "aws_iam_user" "github" {
+  name = "example-user"
+}
+
+resource "aws_iam_user_policy_attachment" "github_admin_role" {
+  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
+  user       = aws_iam_user.github.name
+}
+
+output "paramoutput" {
+  value = aws.github
+}
