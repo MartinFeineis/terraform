@@ -1,7 +1,7 @@
 resource "aws_iam_user" "iam_ecr_pusher" {
   name = "ecrpusher"
-  
-tags = merge(
+
+  tags = merge(
     var.moduletags
   , var.roottags)
 }

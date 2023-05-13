@@ -21,10 +21,10 @@ module "bill" {
 }
 
 module "scps" {
-  source      = "./scps"
+  source    = "./scps"
   target_id = aws_organizations_organizational_unit.dev_org.id
   region_lockdown = [
-  "eu-north-1", "ap-south-1", "eu-west-3", "eu-west-2", "eu-west-1", "ap-northeast-3", "ap-northeast-2", "ap-northeast-1", "sa-east-1", "ca-central-1", "ap-southeast-1", "ap-southeast-2", "eu-central-1", "us-east-2", "us-west-1", "us-west-2" ]
+  "eu-north-1", "ap-south-1", "eu-west-3", "eu-west-2", "eu-west-1", "ap-northeast-3", "ap-northeast-2", "ap-northeast-1", "sa-east-1", "ca-central-1", "ap-southeast-1", "ap-southeast-2", "eu-central-1", "us-east-2", "us-west-1", "us-west-2"]
 }
 
 resource "aws_organizations_organizational_unit" "dev_org" {
@@ -33,13 +33,13 @@ resource "aws_organizations_organizational_unit" "dev_org" {
 }
 
 resource "aws_organizations_account" "development" {
-  name  = "development-account"
-  email = "martin.fe@web.de"
+  name      = "development-account"
+  email     = "martin.fe@web.de"
   parent_id = aws_organizations_organizational_unit.dev_org.id
 }
 
 resource "aws_iam_group" "developer" {
-  name = "Developer"
+  name     = "Developer"
   provider = aws.develop
 }
 
@@ -56,17 +56,16 @@ resource "aws_iam_group_membership" "edvteam" {
     aws_iam_user.mydeveloper.name,
   ]
 
-  group = aws_iam_group.developer.name
+  group    = aws_iam_group.developer.name
   provider = aws.develop
 }
 resource "aws_iam_group_policy_attachment" "attach_dev_policy" {
   group      = aws_iam_group.developer.name
   policy_arn = aws_iam_policy.dev_policy.arn
-
-  provider = aws.develop
+  provider   = aws.develop
 }
 
 resource "aws_iam_user" "mydeveloper" {
-    name = "mfeineis"
+  name     = "mfeineis"
   provider = aws.develop
 }

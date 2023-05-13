@@ -17,7 +17,7 @@ data "aws_iam_policy_document" "region_restriction" {
     condition {
       test     = "StringEqualsIgnoreCase"
       variable = "aws:RequestedRegion"
-      values = var.region_lockdown
+      values   = var.region_lockdown
     }
   }
 }
