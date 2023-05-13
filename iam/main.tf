@@ -1,18 +1,19 @@
-resource "aws_iam_user" "contino" {
-  name = "contino"
+resource "aws_iam_user" "work" {
+  name = "work"
 
-  tags = {
-    Name = "WorkUser"
-  }
+#  tags = {
+#    Name = "WorkUser"
+#  }
+  tags = merge(var.roottags, var.moduletags, {Name = "WorkUser"})
 }
 
-resource "aws_iam_access_key" "continoacckey" {
-  user = aws_iam_user.contino.name
+resource "aws_iam_access_key" "workacckey" {
+  user = aws_iam_user.work.name
 }
 
-resource "aws_iam_user_policy" "contino_ro" {
+resource "aws_iam_user_policy" "work_ro" {
   name = "WorkFAccess"
-  user = aws_iam_user.contino.name
+  user = aws_iam_user.work.name
 
   policy = <<EOF
 {
@@ -38,5 +39,5 @@ resource "aws_iam_user_policy_attachment" "github_admin_role" {
 }
 
 output "paramoutput" {
-  value = aws.github
+  value = aws_iam_user.github
 }

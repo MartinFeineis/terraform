@@ -4,19 +4,16 @@ provider "aws" {
   secret_key = var.secretkey
 }
 
-provider "aws" {
-  assume_role {
-    role_arn = "arn:aws:iam::${aws_organizations_account.development.id}:role/OrganizationAccountAccessRole"
-  }
-
-  alias  = "develop"
-  region = "us-east-1"
-}
 
 module "bill" {
   source                    = "./billing"
   monthly_billing_threshold = 13
   currency                  = "USD"
+  roottags                  = var.roottags
+}
+
+module "users" {
+  source                    = "./iam"
   roottags                  = var.roottags
 }
 
@@ -38,34 +35,13 @@ resource "aws_organizations_account" "development" {
   parent_id = aws_organizations_organizational_unit.dev_org.id
 }
 
-resource "aws_iam_group" "developer" {
-  name     = "Developer"
-  provider = aws.develop
+module "develop_account" {
+  source                    = "./devaccount"
+  #roottags                  = var.roottags
+  devaccountId  = aws_organizations_account.development.id
 }
 
-resource "aws_iam_policy" "dev_policy" {
-  name   = "DevPolicy"
-  policy = file("${path.module}/localIPPolicy.json")
-
-  provider = aws.develop
-}
-
-resource "aws_iam_group_membership" "edvteam" {
-  name = "devteammgroup"
-  users = [
-    aws_iam_user.mydeveloper.name,
-  ]
-
-  group    = aws_iam_group.developer.name
-  provider = aws.develop
-}
-resource "aws_iam_group_policy_attachment" "attach_dev_policy" {
-  group      = aws_iam_group.developer.name
-  policy_arn = aws_iam_policy.dev_policy.arn
-  provider   = aws.develop
-}
-
-resource "aws_iam_user" "mydeveloper" {
-  name     = "mfeineis"
-  provider = aws.develop
+output "dev_account" {
+  value = module.develop_account
+  sensitive = true
 }
