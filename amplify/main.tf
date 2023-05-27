@@ -12,3 +12,7 @@ resource "aws_codecommit_repository" "nuxt_amplify" {
   repository_name = "nuxt_amp"
   description     = "Running Nuxt on amplif"
 }
+
+output "repository" {
+  value     = aws_codecommit_repository.nuxt_amplify.clone_url_ssh
+}

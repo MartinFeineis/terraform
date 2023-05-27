@@ -47,12 +47,16 @@ resource "aws_iam_access_key" "mydeveloper_key" {
 resource "aws_iam_user_ssh_key" "ssh_key_codecommit" {
   username   = aws_iam_user.mydeveloper.name
   encoding   = "SSH"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 mytest@mydomain.com"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDA1m1ydderfxSrSBZyUMeXTo9n0fDkA9kiYqBUmjjsZs5YZtkXSQkBSREiJTW2qYEBrTSu5pXE5P7y5CB2U1bFtr7sPmUQIhkv1tSUPQusuB1tPat/C/PF3ECJYyebm+UV8pII78M7yB24jqYKCGROkLYhZDnxuTuk27ZG+LveKewmaUR9NJH0abkxVyt0nPCLII8J5Ytshm5HckzZ05pofRrKyhrxXuWh3og/0pHVXPzLpS46/weLJqdb7D2CmOezcoOKWicGLJPiAy4tyhkitxyE9WIlNHjJhoTtRHVXcvVIR5rtSRweIj9OX5mNLu3QhYH4IIJ/8PDRceQafw2N aws develop acc codecommit"
   provider   = aws.develop
 }
 
 output "mydeveloper_id" {
   value = aws_iam_access_key.mydeveloper_key.id
+}
+
+output "dev_ssh_key" {
+  value = aws_iam_user_ssh_key.ssh_key_codecommit.ssh_public_key_id
 }
 
 output "mydeveloper_secret" {

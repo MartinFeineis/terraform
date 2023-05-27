@@ -54,6 +54,5 @@ module "amplify" {
 }
 
 output "amplify" {
-  value     = module.develop_account
-  sensitive = true
+  value     = module.amplify
 }
