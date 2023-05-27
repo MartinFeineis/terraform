@@ -2,6 +2,7 @@ provider "aws" {
   region     = "us-east-1"
   access_key = var.accesskey
   secret_key = var.secretkey
+  profile    = "manager"
 }
 
 
@@ -13,8 +14,8 @@ module "bill" {
 }
 
 module "users" {
-  source                    = "./iam"
-  roottags                  = var.roottags
+  source   = "./iam"
+  roottags = var.roottags
 }
 
 module "scps" {
@@ -36,12 +37,23 @@ resource "aws_organizations_account" "development" {
 }
 
 module "develop_account" {
-  source                    = "./devaccount"
+  source = "./devaccount"
   #roottags                  = var.roottags
-  devaccountId  = aws_organizations_account.development.id
+  devaccountId = aws_organizations_account.development.id
 }
 
 output "dev_account" {
-  value = module.develop_account
+  value     = module.develop_account
+  sensitive = true
+}
+
+module "amplify" {
+  source = "./amplify"
+  #roottags                  = var.roottags
+  devaccountId = aws_organizations_account.development.id
+}
+
+output "amplify" {
+  value     = module.develop_account
   sensitive = true
 }

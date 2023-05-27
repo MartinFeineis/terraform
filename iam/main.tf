@@ -1,10 +1,10 @@
 resource "aws_iam_user" "work" {
   name = "work"
 
-#  tags = {
-#    Name = "WorkUser"
-#  }
-  tags = merge(var.roottags, var.moduletags, {Name = "WorkUser"})
+  #  tags = {
+  #    Name = "WorkUser"
+  #  }
+  tags = merge(var.roottags, var.moduletags, { Name = "WorkUser" })
 }
 
 resource "aws_iam_access_key" "workacckey" {
