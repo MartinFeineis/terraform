@@ -23,6 +23,7 @@ resource "aws_iam_group_membership" "edvteam" {
   name = "devteammgroup"
   users = [
     aws_iam_user.mydeveloper.name,
+    aws_iam_user.workaccount.name,
   ]
 
   group    = aws_iam_group.developer.name
